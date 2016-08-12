@@ -1,0 +1,29 @@
+<%= form_for(@address_book) do |f| %>
+  <% if @address_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address_book.errors.count, "error") %> prohibited this address_book from being saved:</h2>
+
+      <ul>
+      <% @address_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div  class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name , placeholder: 'digite su nombre', class: "form-control" %>
+  </div>
+  <div  class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email , placeholder: 'digite aqui su correo electronico', class: "form-control" %>
+  </div>
+  <div  class="form-group">
+    <%= f.label :telephone %><br>
+    <%= f.text_field :telephone , placeholder: 'digite su telefono', class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
