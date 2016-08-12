@@ -1,5 +1,10 @@
 class AddressBook < ActiveRecord::Base
 
+	validates :name, :email, :presence => { message: "No puede dejarse vacío" }
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	validates :email, format: { :with => VALID_EMAIL_REGEX , message: "El formato del correo es invalido" }
+	validates :telephone, numericality: { only_integer: true }
+
 AddressBook.create(name:"monica monsalve", email:"monica@gmail.com", telephone:3425033) # se ingresa datos por consola
 AddressBook.create(name:"carlos andres", email:"carlos24@gmail.com", telephone:3204455)
 AddressBook.create(name:"elizabeth blandon", email:"eliza23@gmail.com", telephone:5453421)
