@@ -10,7 +10,8 @@
 #   timeout: 5000
 #   username: deisy2
 #   password: sistemas08
-production:
+default: &default
+  production:
   adapter: postgresql
   database: treebook
   pool: 5
